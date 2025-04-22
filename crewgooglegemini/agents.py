@@ -1,16 +1,16 @@
-from crewai import Agent
+from crewai import Agent, LLM
 from tools import tool
 from dotenv import load_dotenv
 load_dotenv()
-from langchain_google_genai import ChatGoogleGenerativeAI
+#from langchain_google_genai import ChatGoogleGenerativeAI
 import os
 
 
 ## call the gemini models
-llm=ChatGoogleGenerativeAI(model="gemini-1.5-flash",
+llm=LLM(model="gemini/gemini-1.5-flash",
                            verbose=True,
                            temperature=0.5,
-                           google_api_key=os.getenv("GOOGLE_API_KEY"))
+                           api_key=os.getenv("GOOGLE_API_KEY"))
 
 # Creating a senior researcher agent with memory and verbose mode
 
